@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Application Development</title>
+    <link rel=" stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1 class="heading">Mobile Application Development</h1>
+    </header>
+        <div class ="menu">
+            <nav class="navbar">
+                <a class="nav1" target="#" href="/Assignment2/index.html">Home </a>
+                <a class="nav1" target="#" href="/Assignment2/javascript.html">JScript</a>
+                <a class="nav1" target="#" href="/Assignment2/selectors.html">Selectors</a>
+                <a class="nav1" target="#" href="/Assignment3/f.html">JSON</a>
+                <a class="nav1" target="_blank" href="#">Angular</a>
+            </nav>
+        </div>
+        <div class="container">
+            <div class=" box1 sidelinks">
+                <h2 id="sidebar1">Quick Links</h2>
+                    <a id="sidebar" href="#introduction">Introduction</a>
+                    <a id="sidebar" href="#no1">XML Method</a>
+                    <a id="sidebar" href="#no2">Fetch method</a>
+                    <a id="sidebar" href="#no3">Using Brand Name</a>
+                    <a id="sidebar" href="#no4">Dropdown menu</a>
+                    <a id="sidebar" href="#no5">From website</a>
+            </div>
+            <div class="box json"id="introduction">
+                <h2>What is JSON?</h2>
+                <ul>
+                    <li class="lp">JSON stands for JavaScript Object Notation</li>
+                    <li class="lp">JSON is a lightweight format for storing and transporting data</li>
+                    <li class="lp">JSON is often used when data is sent from a server to a web page</li>
+                    <li class="lp">JSON is "self-describing" and easy to understand</li>
+                </ul>
+                <h2>Data . Json file</h2>
+                <pre>
+                    {
+                        "electronics": [
+                            {
+                              "brand": "Apple",
+                              "model": "iPhone 15 Pro",
+                              "features": ["5G", "A15 Bionic chip", "Super Retina XDR display"],
+                              "price": 999,
+                              "image": "iphone15.jpeg"
+                            },
+                            {
+                              "brand": "Samsung",
+                              "model": "Galaxy S23",
+                              "features": ["5G", "Exynos 2100 processor", "Dynamic AMOLED display"],
+                              "price": 799,
+                              "image": "s23.webp"
+                            },
+                            {
+                              "brand": "HP",
+                              "model": "Pavilion 15",
+                              "features": ["Intel Core i5", "15.6-inch Full HD display", "8GB RAM"],
+                              "price": 599,
+                              "image": "pavilion.jpg"
+                            },
+                            {
+                              "brand": "Lenovo",
+                              "model": "ThinkPad X1 Carbon",
+                              "features": ["Intel Core i7", "14-inch 4K UHD display", "16GB RAM"],
+                              "price": 1399,
+                              "image": "thinkPad.jpg"
+                            },
+                            {
+                              "brand": "Asus",
+                              "model": "ZenBook 14",
+                              "features": ["Intel Core i5", "14-inch Full HD display", "8GB RAM"],
+                              "price": 899,
+                              "image": "zenbook.jpg"
+                            }
+                          ]
+                      }
+                      
+                </pre>
+            </div>
+
+    <div class="box XML" id="no1">
+    <h1>1. Using XML Method</h1> <br>
+    <p>Reading JSON data using JavaScript via XMLHttpRequest involves making a request to the JSON file and parsing the retrieved JSON data.</p>
+        <pre>
+            <code>
+                function displayElectronicsInfo() {
+                    var result = document.getElementById("xmlElectronics-info");
+                    const xml = new XMLHttpRequest();
+                    xml.open("GET", "f.json", true);
+                    xml.send();
+                    xml.onreadystatechange = function() {
+                        if (xml.readyState == 4 && xml.status == 200) {
+                            var data = JSON.parse(xml.responseText);
+                            var electronics = data.electronics;
+                            electronics.forEach((device, index) => {
+                                result.innerHTML += `&lt;h2&gt;Device ${index + 1}&lt;/h2&gt;`;
+                                result.innerHTML += `&lt;p&gt;Brand: ${device.brand}&lt;/p&gt;`;
+                                result.innerHTML += `&lt;p&gt;Model: ${device.model}&lt;/p&gt;`;
+                                result.innerHTML += `&lt;img src="${device.image}" alt="${device.model}" style="max-width: 200px;"/&gt;`;
+                                result.innerHTML += `&lt;p&gt;Features: ${device.features.join(", ")}&lt;/p&gt;`;
+                                result.innerHTML += `&lt;p&gt;Price: $${device.price}&lt;/p&gt;`;
+                            });
+                        }
+                    };
+                };
+            
+                displayElectronicsInfo();
+            </code>
+        </pre>
+    <div id="xmlElectronics-info" class="output-grid"></div>
+
+    <script>
+function displayElectronicsInfo() {
+    var result = document.getElementById("xmlElectronics-info");
+    const xml = new XMLHttpRequest();
+    xml.open("GET", "f.json", true);
+    xml.send();
+    xml.onreadystatechange = function() {
+        if (xml.readyState == 4 && xml.status == 200) {
+            var data = JSON.parse(xml.responseText);
+            var electronics = data.electronics;
+            electronics.forEach((device, index) => {
+                var deviceInfo = document.createElement("div");
+                deviceInfo.className = "device-info";
+                deviceInfo.innerHTML += `<h2>Device ${index + 1}</h2>`;
+                deviceInfo.innerHTML += `<p>Brand: ${device.brand}</p>`;
+                deviceInfo.innerHTML += `<p>Model: ${device.model}</p>`;
+                deviceInfo.innerHTML += `<img src="${device.image}" alt="${device.model}" style="max-width: 200px;"/>`;
+                deviceInfo.innerHTML += `<p>Features: ${device.features.join(", ")}</p>`;
+                deviceInfo.innerHTML += `<p>Price: $${device.price}</p>`;
+                result.appendChild(deviceInfo);
+            });
+        }
+    };
+};
+
+displayElectronicsInfo(); 
+    </script>
+    </div>
+    
+    <div class="box fetch" id="no2">
+        <h1>2. Using Fetch method</h1><br>
+        <p>Fetching data from a JSON file using the fetch method involves making a network request to the JSON file URL and handling the JSON response asynchronously.</p>
+        <pre>
+            <code>
+                function displayElectronicsInfo() {
+                    var result = document.getElementById("fetchElectronics-info");
+                    fetch('f.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        data.electronics.forEach((device, index) => {
+                            var deviceInfo = document.createElement("div");
+                            deviceInfo.className = "device-info";
+                            deviceInfo.innerHTML += `&lt;h2&gt;Device ${index + 1}&lt;/h2&gt;`;
+                            deviceInfo.innerHTML += `&lt;p&gt;Brand: ${device.brand}&lt;/p&gt;`;
+                            deviceInfo.innerHTML += `&lt;p&gt;Model: ${device.model}&lt;/p&gt;`;
+                            deviceInfo.innerHTML += `&lt;img src="${device.image}" alt="${device.model}" style="max-width: 200px;"&gt;`;
+                            deviceInfo.innerHTML += `&lt;p&gt;Features: ${device.features.join(", ")}&lt;/p&gt;`;
+                            deviceInfo.innerHTML += `&lt;p&gt;Price: $${device.price}&lt;/p&gt;`;
+                            result.appendChild(deviceInfo);
+                        });
+                    })
+                    .catch(error => console.error('Error fetching data:', error));
+                }
+        
+                displayElectronicsInfo();
+            </code>
+        </pre>
+        <div id="fetchElectronics-info" class="output-grid"></div>
+        <script>
+            function displayElectronicsInfo() {
+                var result = document.getElementById("fetchElectronics-info");
+                fetch('f.json')
+                .then(response => response.json())
+                .then(data => {
+                    data.electronics.forEach((device, index) => {
+                        var deviceInfo = document.createElement("div");
+                        deviceInfo.className = "device-info";
+                        deviceInfo.innerHTML += `<h2>Device ${index + 1}</h2>`;
+                        deviceInfo.innerHTML += `<p>Brand: ${device.brand}</p>`;
+                        deviceInfo.innerHTML += `<p>Model: ${device.model}</p>`;
+                        deviceInfo.innerHTML += `<img src="${device.image}" alt="${device.model}" style="max-width: 200px;"/>`;
+                        deviceInfo.innerHTML += `<p>Features: ${device.features.join(", ")}</p>`;
+                        deviceInfo.innerHTML += `<p>Price: $${device.price}</p>`;
+                        result.appendChild(deviceInfo);
+                    });
+                })
+                .catch(error => console.error('Error fetching data:', error));
+            }
+            
+            displayElectronicsInfo();
+        </script>
+    </div>
+
+    <div class="box Brand"id="no3">
+    <h1>3. Find device using Brand Name</h1><br>
+        
+
+    <pre>
+        <code>
+            {
+                var brandName = document.getElementById("brand-input").value.trim();
+                if (brandName === "") 
+                {
+                    alert("Please enter a brand name.");
+                    return;
+                }
+    
+                fetch('f.json')
+                .then(response => response.json())
+                .then(data => {
+                    var devices = data.electronics.filter(device => device.brand.toLowerCase() === brandName.toLowerCase());
+                    if (devices.length > 0) {
+                        var result = document.getElementById("search-result");
+                        result.innerHTML = "";
+                        devices.forEach((device, index) => {
+                            result.innerHTML += `&lt;h2&gt;${device.brand} ${device.model}&lt;/h2&gt;`;
+                            result.innerHTML += `&lt;p&gt;Features: ${device.features.join(", ")}&lt;/p&gt;`;
+                            result.innerHTML += `&lt;p&gt;Price: $${device.price}&lt;/p&gt;`;
+                            result.innerHTML += `&lt;img src="${device.image}" alt="${device.model}" style="max-width: 200px;"&gt;`;
+                        });
+                    } 
+                    else 
+                    {
+                        document.getElementById("search-result").innerHTML = "No device found for the brand: " + brandName;
+                        document.getElementById("search-result").style.fontWeight= "bold";
+                        document.getElementById("search-result").style.fontSize= "25px";
+                        document.getElementById("search-result").style.color= "red";
+                    }
+                })
+            }
+        </code>
+    </pre>
+    <div class="search">
+    <input type="text" id="brand-input" placeholder="Enter brand name">
+    <button onclick="searchDevices()">Search</button></div>
+    <br><br>
+    <div id="search-result"></div>
+    <script>
+        function searchDevices() 
+        {
+            var brandName = document.getElementById("brand-input").value.trim();
+            if (brandName === "") 
+            {
+                alert("Please enter a brand name.");
+                return;
+            }
+
+            fetch('f.json')
+            .then(response => response.json())
+            .then(data => {
+                var devices = data.electronics.filter(device => device.brand.toLowerCase() === brandName.toLowerCase());
+                if (devices.length > 0) {
+                    var result = document.getElementById("search-result");
+                    result.innerHTML = ""; // Clear previous results
+                    devices.forEach((device, index) => {
+                        result.innerHTML += `<h2>${device.brand} ${device.model}</h2>`;
+                        result.innerHTML += `<p>Features: ${device.features.join(", ")}</p>`;
+                        result.innerHTML += `<p>Price: $${device.price}</p>`;
+                        result.innerHTML += `<img src="${device.image}" alt="${device.model}" style="max-width: 200px;"/>`;
+                    });
+                } 
+                else 
+                {
+                    document.getElementById("search-result").innerHTML = "No device found for the brand: " + brandName;
+                    document.getElementById("search-result").style.fontWeight= "bold";
+                    document.getElementById("search-result").style.fontSize= "25px";
+                    document.getElementById("search-result").style.color= "red";
+                }
+            })
+        }
+    </script>
+    </div>
+    
+    <div class="box dropdown" id="no4">
+    <h1>4. Locate device using Model dropdown menu</h1>
+
+    <pre>
+        <code>
+            function getModels() {
+                var modelList = document.getElementById("model");
+                var info = "&lt;option&gt;---&lt;/option&gt;";
+                fetch('f.json')
+                    .then(res => res.json())
+                    .then(data => {
+                        data.electronics.forEach(device => {
+                            info += "&lt;option&gt;" + device.model + "&lt;/option&gt;";
+                        });
+                        modelList.innerHTML = info;
+                    });
+            }
+        
+            function displayDevice() {
+                var selectedModel = document.getElementById('model').value;
+                var modelName = document.getElementById("modelName");
+                var modelImage = document.getElementById("modelImage");
+                var modelFeatures = document.getElementById("modelFeatures");
+                var modelPrice = document.getElementById("modelPrice");
+        
+                fetch('f.json')
+                    .then(res => res.json())
+                    .then(data => {
+                        var selectedDevice = data.electronics.find(device => device.model === selectedModel);
+                        if (selectedDevice) {
+                            modelName.innerHTML = "Model: " + selectedDevice.model;
+                            modelImage.setAttribute('src', selectedDevice.image);
+                            modelFeatures.innerHTML = "Features: " + selectedDevice.features.join(", ");
+                            modelPrice.innerHTML = "Price: $" + selectedDevice.price;
+                        } else {
+                            modelName.innerHTML = "";
+                            modelImage.setAttribute('src', '');
+                            modelFeatures.innerHTML = "";
+                            modelPrice.innerHTML = "";
+                            alert("Model not found.");
+                        }
+                    });
+            }
+            getModels();
+        </code>
+    </pre>
+    <form onsubmit="return false;">
+        <h2>Select the model:</h2><br>
+        <select id="model" onchange="displayDevice()">
+            <option>---</option>
+        </select>
+    </form>
+    <div>
+        <h2 id="modelName"></h2>
+        <img id="modelImage" style="max-width: 200px;">
+        <h3 id="modelFeatures"></h3>
+        <p id="modelPrice"></p>
+    </div>
+    <script>
+        function getModels() {
+            var modelList = document.getElementById("model");
+            var info = "<option>---</option>";
+            fetch('f.json')
+                .then(res => res.json())
+                .then(data => {
+                    data.electronics.forEach(device => {
+                        info += "<option>" + device.model + "</option>";
+                    });
+                    modelList.innerHTML = info;
+                });
+        }
+    
+        function displayDevice() {
+            var selectedModel = document.getElementById('model').value;
+            var modelName = document.getElementById("modelName");
+            var modelImage = document.getElementById("modelImage");
+            var modelFeatures = document.getElementById("modelFeatures");
+            var modelPrice = document.getElementById("modelPrice");
+    
+            fetch('f.json')
+                .then(res => res.json())
+                .then(data => {
+                    var selectedDevice = data.electronics.find(device => device.model === selectedModel);
+                    if (selectedDevice) {
+                        modelName.innerHTML = "Model: " + selectedDevice.model;
+                        modelImage.setAttribute('src', selectedDevice.image);
+                        modelFeatures.innerHTML = "Features: " + selectedDevice.features.join(", ");
+                        modelPrice.innerHTML = "Price: $" + selectedDevice.price;
+                    } else {
+                        modelName.innerHTML = "";
+                        modelImage.setAttribute('src', '');
+                        modelFeatures.innerHTML = "";
+                        modelPrice.innerHTML = "";
+                        alert("Model not found.");
+                    }
+                });
+        }
+    
+        getModels(); // Call function to populate models dropdown on page load
+    </script>
+    </div>
+    <div class=" box website"id="no5">
+    <h1>5. Fetch data from website</h1>
+
+    <pre>
+        <code>
+            function readOnlineJson() {
+                var title = document.getElementById('title');
+                var infoDiv = document.getElementById('info');
+    
+                fetch('https://reqres.in/api/products/3')
+                .then(res => res.json())
+                .then(data => {
+                    title.innerHTML = data.data.name;
+    
+                    var infoHTML = `
+                    &lt;p&gt;<strong>ID:</strong> ${data.data.id}&lt;/p&gt;
+                    &lt;p&gt;<strong>Year:</strong> ${data.data.year}&lt;/p&gt;
+                    &lt;p&gt; style="color: ${data.data.color};"><strong>Color:</strong> ${data.data.color}&lt;/p&gt;
+                    &lt;p&gt;<strong>Pantone Value:</strong> ${data.data.pantone_value}&lt;/p&gt;
+                    `;
+                    infoDiv.innerHTML = infoHTML;
+    
+                    title.style.color = data.data.color; // Change the color of the title element
+                })
+            }
+    
+            readOnlineJson();
+        </code>
+    </pre>
+    <h1 id="title">Title Placeholder</h1>
+    <div id="info"></div>
+    <script>
+        function readOnlineJson() {
+            var title = document.getElementById('title');
+            var infoDiv = document.getElementById('info');
+
+            fetch('https://reqres.in/api/products/3')
+            .then(res => res.json())
+            .then(data => {
+                title.innerHTML = data.data.name;
+
+                var infoHTML = `
+                    <p><strong>ID:</strong> ${data.data.id}</p>
+                    <p><strong>Year:</strong> ${data.data.year}</p>
+                    <p style="color: ${data.data.color};"><strong>Color:</strong> ${data.data.color}</p>
+                    <p><strong>Pantone Value:</strong> ${data.data.pantone_value}</p>
+                `;
+                infoDiv.innerHTML = infoHTML;
+
+                title.style.color = data.data.color; // Change the color of the title element
+            })
+        }
+
+        readOnlineJson(); // Call the function to fetch data when the script loads
+    </script>
+            
+        </div>
+
+
+</div>
+</body>
+</html>

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Selectors</title>
+    <link rel="stylesheet" href="selectors.css">
+</head>
+
+<body>
+    <header>
+        <h1 class="heading">Mobile Application Development</h1>
+    </header>
+    <div class="menu">
+        <nav class="navbar">
+            <a class="nav1" target="" href="/Assignment2/index.html">Home </a>
+            <a class="nav1" target="" href="/Assignment2/javascript.html">JScript</a>
+            <a class="nav1" target="" href="/Assignment2/selectors.html">Selectors</a>
+            <a class="nav1" target="" href="/Assignment3/f.html">JSON</a>
+            <a class="nav1" target="_blank" href="#">Angular</a>
+        </nav>
+    </div>
+
+    <h1>JavaScript Selectors</h1>
+    <div class="container">
+        <div class="box1 sidelinks">
+            <h2 id="sidebar1">Quick Links</h2>
+            <a id="sidebar" href="#tagSelector">Tag Selector</a>
+            <a id="sidebar" href="#idSelector">ID Selector</a>
+            <a id="sidebar" href="#classSelector">Class Selector</a>
+            <a id="sidebar" href="#attributeSelector">Attribute Selector</a>
+            <a id="sidebar" href="#attributeValueSelector">Attribute Value Selector</a>
+            <a id="sidebar" href="#contact">Contact Us</a>
+            <div class="imgs">
+                <img width="300px" height="300px" src="jail-comic.png" alt="comic">
+                <p>Context: You can go to jail for breaking another developers code without their permission!!!</p>
+                <p>Copyright Issues</p>
+            </div>
+        </div>
+
+
+
+    <!-- Tag Selector Example -->
+    <div class="box tag" id="tagSelector">
+        <h2>Tag Selector</h2>
+        <p>
+            A tag selector in Java selects HTML elements based on their tag name.<br>
+            <strong>General Syntax: </strong>&lt;tagname&gt;Content goes here...&lt;/tagname&gt;
+            <p>Examples of some HTML elements:</p>
+            <p>
+                -> &lt;h1&gt;My First Heading&lt;/h1&gt;
+                <br><br>
+                -> &lt;p&gt;My first paragraph.&lt;/p&gt;
+            </p>
+        </p>
+        <h3>Advantages</h3>
+        <p>
+            1. Simple and easy to use.<br>
+            2. Targets all instances of a specific tag on a page.<br>
+            3. Widely supported and applicable to multiple elements.
+        </p>
+        <h3>Disadvantages</h3>
+        <p>
+            1. Lacks specificity, affecting styling predictability.<br>
+            2. Can't target specific instances of a tag without additional context.<br>
+            3. Limited control over styling for individual elements.
+        </p>
+
+        <h3>This example demonstrates how to select HTML elements based on their tag name. For example, selecting
+            all &lt;h4&gt; elements to change their text color.</h3>
+        <h4>The color of this line changes.</h4>
+        <pre>
+            <code>
+                &lt;h4&gt;The color of this line changes.&lt;/h4&gt;
+
+                &lt;script&gt;
+                    function changeParagraphColor() 
+                    {
+                        document.querySelectorAll('.tag h4').forEach(h4 => h4.style.color = 'blue');
+                    }
+                &lt;/script&gt;
+            </code>
+        </pre>
+        <button onclick="changeParagraphColor()">Change Paragraph Color</button>
+        <script>
+            // Function to change color of all <p> elements to blue
+            function changeParagraphColor() 
+            {
+                document.querySelectorAll('.tag h4').forEach(h4 => h4.style.color = 'blue');
+            }
+
+        </script>
+        </div>
+
+    <!-- ID Selector Example -->
+    <div class="box id" id="idSelector">
+        <h2>ID Selector</h2>
+        <p>
+            An ID selector in Java selects a unique HTML element based on its "id" attribute.
+            <br>
+            <strong>General Syntax: </strong>&lt;tagname id=" "&gt;Content goes here...&lt;/tagname&gt;
+            <p>Examples of some HTML elements:</p>
+            <p>
+                -> &lt;h1 id="heading"&gt;My First Heading&lt;/h1&gt;
+            </p>
+        </p>
+        <h3>Advantages</h3>
+        <p>
+            1. Uniquely identifies a single element, ensuring specificity.<br>
+            2. Efficient for styling or scripting a specific element.<br>
+            3. Supports a direct link to a fragment identifier in the URL.
+        </p>
+        <h3>Disadvantages</h3>
+        <p>
+            1. Limited to a single element per ID, restricting reuse.<br>
+            2. Can lead to global namespace conflicts if not managed properly.<br>
+            3. May encourage overly specific styling, making code less maintainable.
+        </p>
+
+        <h3>Shows how to select an element by its ID to modify its properties. This is useful for targeting a
+            unique element on the page.</h3>
+
+        <pre>
+            <code>
+                &lt;script&gt;
+                    document.getElementById('').style.backgroundColor = 'lightgrey';
+                &lt;/script&gt;
+            </code>
+        </pre>
+
+        <button onclick="changeBackgroundColorById()">Change Background Color By ID</button>
+        <script>
+            function changeBackgroundColorById() 
+            {
+                document.getElementById('idSelector').style.backgroundColor = 'red';
+            }
+        </script>
+        </div>
+
+    <!-- Class Selector Example -->
+    <div class="box class" id="classSelector">
+        <h2>Class Selector</h2>
+        <p>
+            A class selector in Java selects HTML elements based on their "class" attribute.
+            <br>
+            <strong>General Syntax: </strong>&lt;tagname class=" "&gt;Content goes here...&lt;/tagname&gt;
+            <p>Examples of some HTML elements:</p>
+            <p>
+                -> &lt;h1 class="heading"&gt;My First Heading&lt;/h1&gt;
+                <br>
+                -> &lt;h1 class="heading"&gt;My First Heading&lt;/h1&gt;
+            </p>
+        </p>
+        <h3>Advantages</h3>
+        <p>
+            1. Allows styling or scripting for multiple elements with the same class.<br>
+            2. Promotes code reusability and maintainability.<br>
+            3. Supports the application of multiple classes to a single element.
+        </p>
+        <h3>Disadvantages</h3>
+        <p>
+            1. Less specific than ID selectors, which may lead to unintended styling.<br>
+            2. Requires caution to avoid global naming conflicts.<br>
+            3. May lead to increased complexity when dealing with multiple classes.
+        </p>
+
+        <h3>Shows how to select an element by its Class to modify its properties. This is useful for targeting a
+            multiple elements on the page at once.<br>Example: </h3>
+
+        <p class="para">This is performed to explain the property of class selector.</p>
+        <p class="para">Here, we can change the font color and content of both the lines by using class method.</p>
+        <pre>
+            <code>
+                &lt;p class="para"&gt;This is performed to explain the property of class selector.&lt;/p&gt;
+                &lt;p class="para"&gt;Here, we can change the font color and content of both the lines by using class method.&lt;/p&gt;
+
+                &lt;script&gt;
+                function changeContentAndColorByClass() {
+                    var elements = document.querySelectorAll('.para');
+                    elements.forEach(function (element) 
+                    {
+                        element.style.color = 'aqua';
+                        element.innerHTML = 'The content of both the lines has been changed along with its color.';
+                    });
+                }
+                &lt;/script&gt;
+            </code>
+        </pre>
+        <p>
+            This HTML code consists of two paragraphs with the class "para" and a button. The embedded JavaScript function, triggered by the button click, uses 
+            `querySelectorAll` to select all elements with the class "para" and changes their text color to aqua while updating their content. <br>This illustrates 
+            how the class selector can be employed to dynamically modify the styling and content of multiple HTML elements at once.
+        </p>
+        <button onclick="changeContentAndColorByClass()">Change Content and Color By Class</button>
+        <script>
+            function changeContentAndColorByClass() {
+                var elements = document.querySelectorAll('.para');
+                elements.forEach(function (element) 
+                {
+                    element.style.color = 'aqua';
+                    element.innerHTML = 'The content of both the lines has been changed along with its color.';
+                });
+            }
+        </script>
+        </div>
+
+    <!-- Attribute Selector Example -->
+    <div class="box attribute" id="attributeSelector">
+        <h2>Attribute Selector Demonstration</h2>
+        <p>
+            An attribute selector in Java selects HTML elements based on the presence or value of an attribute.
+        </p>
+        <h3>Advantages</h3>
+        <p>
+            1. Enables selection based on specific attributes, adding flexibility.<br>
+            2. Supports the targeting of elements with certain attribute values.<br>
+            3. Useful for selecting elements with dynamic attributes.
+        </p>
+        <h3>Disadvantages</h3>
+        <p>
+            1. Can be less intuitive and more verbose than other selectors.<br>
+            2. Limited to selecting elements based on attribute criteria.<br>
+            3. May not be supported in older browsers.
+        </p>
+        <h3>This example explains how to select elements with a specified attribute to enable targeted styling.
+            By clicking the button below, the border color of elements with the example
+            attribute will change to red.</h3>
+
+            <p example="first">First Element with example attribute</p>
+            <br><br>
+            <p example="second">Second Element with example attribute</p>
+
+        <pre>
+            <code>
+                &lt;script&gt;
+                    function changeBorderByAttribute() 
+                    {
+                        document.querySelectorAll('[example]').forEach(el => el.style.border = '2px solid red');
+                    }
+                    &lt;/script&gt;
+        </code></pre>
+        <p>
+            This HTML code includes two paragraphs with the "example" attribute and a button. The JavaScript function, triggered by the button click, uses `querySelectorAll` to select 
+            all elements with the "example" attribute and changes their border to a red, solid line. <br>This demonstrates how to dynamically apply styling based on a specific attribute 
+            in the HTML elements.
+        </p>
+        <button onclick="changeBorderByAttribute()">Change Border By Attribute</button>
+        
+        <script>
+
+            function changeBorderByAttribute() 
+            {
+                document.querySelectorAll('[example]').forEach(el => el.style.border = '2px solid red');
+            }
+        </script>
+        </div>
+
+    <!-- Attribute Value Selector Example -->
+    <div class="box boxes" id="attributeValueSelector">
+        <h2>Attribute Value Selector</h2>
+        <p>
+            An attribute value selector in Java selects HTML elements with a specific attribute value.        
+        </p>
+        <h3>Advantages</h3>
+        <p>
+            1. Targets elements with precise attribute values.<br>
+            2. Useful for selecting specific instances of elements.<br>
+            3. Enhances the specificity of the selector.
+        </p>
+        <h3>Disadvantages</h3>
+        <p>
+            1. May be too specific, leading to potential maintenance issues.<br>
+            2. Not as flexible as other selectors for broader element selection.<br>
+            3. Similar to attribute selectors, potential lack of support in older browsers..
+        </p>
+        <h3>Details how to select elements whose attribute matches a specific value. It's useful for applying
+            specific behaviors to elements with certain attributes, such as changing the background color of all
+            text inputs.</h3>
+        <div>
+            <input type="text" placeholder="Input Text">
+            <input type="number" placeholder="Input Number">
+        </div>
+
+        <pre>
+            <code>
+                // Example function to change background color of input elements with type="text"
+
+                function changeInputBackgroundColor() 
+                {
+                    document.querySelectorAll('input[type="text"]').forEach(function(input) 
+                    {
+                        input.style.backgroundColor = 'red';
+                    });
+                }
+            </code>
+        </pre>
+        <p>
+            The HTML code defines two input elements, one for text and the other for numbers, along with a button. The JavaScript function, triggered by the button click, uses 
+            `querySelectorAll` to select all text input elements and changes their background color to red. <br>This enables dynamic modification of the visual appearance of text 
+            input fields on the web page.
+        </p>
+        <button onclick="changeInputBackgroundColor()">Change Input Background Color</button>
+        
+        </div>
+        <script>
+            function changeInputBackgroundColor() 
+            {
+                document.querySelectorAll('input[type="text"]').forEach(input => input.style.backgroundColor = 'red');
+            }
+        </script>
+    </div>
+    <footer>
+        <div class="foot foot-end" id="contact">
+            <a class="email" href="contact.html">Contact Us</a>
+            <p>Phone: 123-456-7890</p>
+            <a class="email" href="mailto:group4@gmail.com">Click to Email: aswad.azan42@gmail.com</a>
+            <p>Address: 1212 Sheridan College Drive</p>
+        </div>
+        <p>Copyright &#169 2024. All rights Reserved <a target="_blank"
+                href="https://www.sheridancollege.ca/en">Sheridan College.</a></p>
+    </footer>
+</body>
+</html>

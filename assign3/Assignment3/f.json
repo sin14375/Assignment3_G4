@@ -1,0 +1,39 @@
+{
+  "electronics": [
+      {
+        "brand": "Apple",
+        "model": "iPhone 15 Pro",
+        "features": ["5G", "A15 Bionic chip", "Super Retina XDR display"],
+        "price": 999,
+        "image": "iphone15.jpeg"
+      },
+      {
+        "brand": "Samsung",
+        "model": "Galaxy S23",
+        "features": ["5G", "Exynos 2100 processor", "Dynamic AMOLED display"],
+        "price": 799,
+        "image": "s23.webp"
+      },
+      {
+        "brand": "HP",
+        "model": "Pavilion 15",
+        "features": ["Intel Core i5", "15.6-inch Full HD display", "8GB RAM"],
+        "price": 599,
+        "image": "pavilion.jpg"
+      },
+      {
+        "brand": "Lenovo",
+        "model": "ThinkPad X1 Carbon",
+        "features": ["Intel Core i7", "14-inch 4K UHD display", "16GB RAM"],
+        "price": 1399,
+        "image": "thinkPad.jpg"
+      },
+      {
+        "brand": "Asus",
+        "model": "ZenBook 14",
+        "features": ["Intel Core i5", "14-inch Full HD display", "8GB RAM"],
+        "price": 899,
+        "image": "zenbook.jpg"
+      }
+    ]
+}

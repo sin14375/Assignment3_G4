@@ -1,0 +1,181 @@
+body {
+    background-color: beige;
+}
+.heading{
+    text-align: center;
+    color: black;
+    font-size: 35px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+h1{
+    text-align: center;
+    font-size: 50px;
+}
+.navbar{ 
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    background-color:black; 
+    height: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    justify-content: space-evenly;
+    flex-direction: row;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+.nav1{
+    text-decoration: none;
+    color: white;
+    font-size: 24px;
+}
+.box{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    text-align: justify;
+    padding: 50px;
+    box-shadow: 1px 2px 20px;
+    transition: 1s;
+}
+.box1{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content:center;
+    text-decoration: none;
+
+}
+#sidebar{
+    color: purple;
+    text-decoration: none;
+    font-size: 27px;
+
+  }
+.sidelinks{
+    width: 300px;
+    height: 300px;
+    grid-area: sidelinks;
+}
+#sidebar1{
+    color: black;
+    font-size: 40px;
+  }
+.container{
+    height: 96%;
+    width:96%;
+    display: flex;
+    flex-wrap: nowrap;
+    margin: auto;
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: .5fr 9.5fr ;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
+    grid-template-areas:
+    "sidelinks intro"
+    ". comp"
+    ". dat"
+    ". arr "
+    ". obj"
+    ". func"
+    ". domi"
+    ". arro"
+    ". restp";
+    margin-bottom: 40px;
+    
+}
+.foot{
+    border: thin solid;
+    text-align: center;
+    border-radius: 10px;
+    text-decoration: none;
+    margin-right: 9px;
+    padding-top: 10px;
+}
+.email{
+    text-decoration: none;
+    color: black;
+}
+.intro{
+    grid-area:intro;
+    color: white;
+    background-color: black;
+    width: auto;
+    height:300px;
+    border-radius: 10px;
+}
+.comp{
+    grid-area:comp;
+    color: white;
+    background-color: black;
+    width: auto;
+    height: fit-content;
+    border-radius: 10px;
+    margin-top: -200px;
+
+}
+.dat{
+    grid-area: dat;
+    color: white;
+    background-color: black;
+    width: auto;
+    height: fit-content;
+    border-radius: 10px;
+    margin-top: -230px;
+}
+.arr{
+    grid-area: arr;
+    color: white;
+    background-color: black;
+    width: auto;
+    height: fit-content;
+    border-radius: 10px;
+}
+.obj{
+    grid-area: obj;
+    color: white;
+    background-color: black;
+    width: auto;
+    height: fit-content;
+    border-radius: 10px;
+}
+.func{
+    grid-area: func;
+    color: white;
+    background-color: black;
+    width: auto;
+    height: fit-content;
+    border-radius: 10px;
+}
+.domi{
+    grid-area: domi;
+    color: white;
+    background-color: black;
+    width: auto;
+    height: fit-content;
+    border-radius: 10px;
+}
+.arro{
+    grid-area: arro;
+    color: white;
+    background-color: black;
+    width: auto;
+    height: fit-content;
+    border-radius: 10px;
+}
+.restp{
+    grid-area: restp;
+    color: white;
+    background-color: black;
+    width: auto;
+    height: fit-content;
+    border-radius: 10px;
+}
+
+
+
+
+
+
+

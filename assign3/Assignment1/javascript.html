@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+    <link rel="stylesheet" href="javascript.css">
+
+</head>
+<body>
+    <header>
+        <h1 class="heading">Mobile Application Development</h1>
+    </header>
+        <div class ="menu">
+            <nav class="navbar">
+                <a class="nav1" target="#" href="index.html">Home</a>
+                <a class="nav1" target="#" href="javascript.html">JScript</a>
+                <a class="nav1" target="#" href="se">Json</a>
+                <a class="nav1" target="#" href="#">Ajax</a>
+                <a class="nav1" target="#" href="#">Angular</a>
+            </nav>
+        </div>
+        <h1>JavaScript</h1>
+<div class="container">
+    <div class="box1 sidelinks">
+        <h2 id="sidebar1">Quick Links</h2>
+            <a id="sidebar" href="#introduction">Introduction</a>
+            <a id="sidebar" href="#comaprison">Comparison</a>
+            <a id="sidebar" href="#data">Variables & Data Types:</a>
+            <a id="sidebar" href="#array">Arrays</a>
+            <a id="sidebar" href="#object">Objects</a>
+            <a id="sidebar" href="#function">Functions</a>
+            <a id="sidebar" href="#dom">DOM</a>
+            <a id="sidebar" href="#arrow">Arrow Function</a>
+            <a id="sidebar" href="#restParam">Rest Parameter</a>
+            <a id="sidebar" href="#contact">Contact Us</a>
+    </div>
+
+    <div class="box intro" id="introduction">
+        <h2>Introduction</h2>
+        <ul>
+            <li>Certainly! JavaScript is a versatile and widely-used programming language primarily known for its ability to add interactivity to web 
+            pages. Developed by Netscape in the mid-1990s, JavaScript has become an essential component of web development, allowing developers 
+            to create dynamic and responsive user interfaces.</li>
+            <li>To incorporate JavaScript into HTML, you can include your JavaScript code directly within "script" tags in the HTML document.</li>
+        </ul>
+    </div>
+    <!--<img src="Simplejscode.png" alt="Simple js Code" class="jscode1">-->
+
+    <div class="box comp" id="comparison">
+        <h2>Advantages of JavaScript</h2>
+        <ul>
+            <li>Enhanced User Interfaces: JavaScript boosts the interactivity of web pages, creating more engaging and dynamic user interfaces.</li>
+            <li>Accessible Learning Curve: JavaScript is beginner-friendly, with a syntax that resembles other widely-used programming languages, 
+                making it easier for newcomers to pick up.</li>
+            <li>Universal Support: JavaScript enjoys widespread browser support, ensuring its compatibility across various platforms, contributing 
+                to its status as a standard web technology.</li>
+            <li>Versatility Across the Stack: JavaScript's flexibility extends to both front-end and back-end development, allowing developers 
+                to use the language throughout the entire web development stack.</li>
+        </ul>
+        <h2>Disadvantages of JavaScript</h2>
+        <ul>
+            <li>SBrowser Compatibility Challenges: Ensuring consistent behavior across different browsers can be difficult, requiring developers 
+                to address variations in implementation and standards.</li>
+            <li>Security Risks: JavaScript's execution on the client side introduces security concerns, such as the risk of Cross-Site Scripting 
+                (XSS) attacks, necessitating secure coding practices and input validation.</li>
+            <li>Single-Threaded Limitations: Operating in a single-threaded environment, JavaScript may face challenges in handling 
+                computationally intensive tasks, potentially causing performance bottlenecks.</li>
+            <li>Browser-Dependent Performance: The performance of JavaScript code relies on the capabilities of individual browsers, 
+                leading to variations that can impact the speed and responsiveness of web applications.</li>
+        </ul>
+    </div>
+    <div class="box dat" id="data">
+        <h2>Variables & Data Types:</h2>
+        <p>Definition:
+            Variables in JavaScript serve as containers for storing data values. They are declared using keywords such as var, let, or const. 
+            Data types in JavaScript include primitive types like strings, numbers, booleans, as well as more complex types such as objects and 
+            arrays.</p>
+        <h2>Data Types</h2>
+        <ol>
+            <li>var: Variables declared with 'var' are function-scoped, which means they are limited to the function they are declared in. 
+                They are also hoisted to the top of their scope.</li>
+            <li>let: 'let' is block-scoped and allows the variable to be reassigned. It is not hoisted to the top of the block.</li>
+            <li>const: Similar to 'let' in terms of block-scoping, but variables declared with 'const' cannot be reassigned after declaration. 
+                It is commonly used for values that should not be changed.</li>  
+        </ol>
+    </div>
+    <!--<img src="variable.png" alt="Variables" id="variables" class="vari">
+    <img src="datatypes.png" alt="Datatypes" id="datatypes">-->
+    <div class="box arr" id="array">
+        <h2>Arrays</h2>
+        <p>An array in JavaScript is a data structure that allows you to store multiple values within a single variable.</p>
+        <p>These values, known as elements, can be of any data type and are stored in a sequential order. Each element in the array is identified by an index, starting from 0 for the first element.</p>
+        <h2>Types of Array:</h2>
+        <ol>
+            <li>Accessing a particular element
+                <ul>
+                    <li>document.write(fruits[0]);</li>
+                    <li>document.write(fruits[2]);</li>
+                </ul>
+            </li>
+            <li>Removing the last element using the "pop" method: document.write(fruits.pop());</li>
+            <li>Adding a new element to the end using the "push" method: document.write(fruits.pop('pineapple'));</li>
+            <li>Removing elements starting from index 1, removing 2 elements, and adding new elements using the splice method: fruits.splice(1, 2, 'mango', 'strawberry');</li>
+        </ol>
+    </div>
+    <!--<img src="array.png" alt="Array" id="array1">-->
+    <div class="box obj" id="object">
+        <h2>Objects</h2>
+        <p>Definition: Objects in JavaScript are complex data types that allow you to group related data and functions together.</p>
+        <p>Objects consist of key-value pairs, where each key is a property or method of the object.</p>
+    </div> 
+    <!--<img src="object.png" alt="Objects" id="object">-->
+    <div class="box func" id="function">
+        <h2>Functions</h2>
+        <p>Definition: A JavaScript function is defined with the function keyword, followed by a name, followed by parentheses ().</p>
+        <pre>
+            <code>
+            function name(parameter1, parameter2, parameter3) {
+                // code to be executed
+                }
+            </code>
+        </pre>
+        <p>Function names can contain letters, digits, underscores, and dollar signs (same rules as variables).</p>
+        <p>The parentheses may include parameter names separated by commas: (parameter1, parameter2, ...)</p>
+    </div>
+    <!--<img src="function1.png" alt="Function" id="function1">
+    <img src="function2.png" alt="Function" id="function2">-->
+    <div class="box domi" id="dom">
+        <h2>Document Object Model (DOM)</h2>
+        <p>The Document Object Model (DOM) is a programming interface for web documents. It represents the structure of an HTML or XML document as a tree-like structure where each node in the tree corresponds to an element in the document.
+            The DOM provides a way for programs to manipulate the structure, style, and content of web documents dynamically.</p>
+        <h2>Key concepts related to the DOM:</h2>
+        <ul>
+            <li>Elements:
+                <ul>
+                    <li>HTML elements like "div", "p", "span" are represented as nodes in the DOM.</li>
+                    <li>Elements are organized in a hierarchical structure, with parent-child relationships.</li>
+                </ul>
+            </li>
+            <li>Nodes:
+                <ul>
+                    <li>Nodes are individual entities in the DOM tree, representing elements, attributes, or textual content.</li>
+                    <li>The main types of nodes include element nodes, attribute nodes, and text nodes.</li>
+                </ul>
+            </li>
+            <li>Attributes:
+                <ul>
+                    <li>HTML element attributes, such as id, class, or src, are represented as attributes of corresponding element nodes in the DOM.</li>
+                </ul>
+            </li>
+            <li>Methods for Accessing Elements:
+                <ul>
+                    <li>getElementById(id): Returns the element with the specified ID.</li>
+                    <li>getElementsByClassName(className): Returns a collection of elements with the specified class name.</li>
+                    <li>getElementsByTagName(tagName): Returns a collection of elements with the specified tag name.</li>
+                </ul>
+            </li>
+            <li>Manipulating Content:
+                <ul>
+                    <li>innerHTML: Modifies the HTML content within an element.</li>
+                    <li>style: Changes the design of the content</li>
+                    <li>textContent: Modifies the text content of an element as similar as the code.</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <!--<img src="dom.png" alt="DOM" id="dom" >-->
+    <div class="box arro" id="arrow">
+        <h2>Arrow Functions</h2>
+        <p>Allows you to write function expressions without the normal function and return keywords.</p>
+    </div>
+    <!--<img src="arrow1.png" alt="Arrow Function Example 1" id="arrow arrow1">
+    <img src="arrow2.png" alt="Arrow Function Example 2" id="arrow arrow2">-->
+    <div class="box restp" id="restParam">
+        <h2>Rest parameters</h2>
+        <p>The rest parameter in JavaScript allows you to represent an indefinite number of arguments as an array. It is indicated by the ellipsis (...) followed by the parameter name.</p>
+    </div>
+    <!--<img src="restParam.png" alt="Rest parameters" id="restParam1">-->
+
+</div>
+</body>
+    <footer>
+        <div class="foot foot-end" id="contact">
+            <a class="email" href="contact.html">Contact Us</a>
+            <p>Phone: 123-456-7890</p>
+            <a class="email" href="mailto:aswad.azan42@gmail.com">Click to Email: aswad.azan42@gmail.com</a>
+            <p>Address: 1212 Sheridan College Drive</p>
+        </div>
+        <p>Copyright &#169 2024. All rights Reserved <a target="_blank" href="https://www.sheridancollege.ca/en">Sheridan College.</a></p>
+    </footer>
+</html>
+
+
+
+
+
+
+
+
+
+
